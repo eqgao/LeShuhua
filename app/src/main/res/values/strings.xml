@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">LeShuhua</string>
+
+    <string name="menu_change_theme">切换主题</string>
+    <string name="menu_login_help">登录帮助</string>
+    <string name="action_search">搜索</string>
+    <string name="action_notice">通知</string>
+    <string name="action_settings">设置</string>
+    <string name="action_about">关于我</string>
+    <string name="menu_upload">上传</string>
+    <string name="menu_order">我的订单</string>
+    <string name="menu_account">我的账户</string>
+    <string name="menu_setting">我的设置</string>
+    <string name="menu_loginout">退出登录</string>
+</resources>
