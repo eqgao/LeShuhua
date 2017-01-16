@@ -28,10 +28,12 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:' + SUPPORT_VERSION
     compile 'com.android.support:design:' + SUPPORT_VERSION
+    compile 'com.android.support:recyclerview-v7:' + SUPPORT_VERSION
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.facebook.fresco:fresco:0.13.0'
     compile 'io.reactivex:rxjava:1.1.7'
     compile 'io.reactivex:rxandroid:1.2.1'
     testCompile 'junit:junit:4.12'
     compile 'com.orhanobut:logger:1.15'
+    compile project(path: ':ptr-lib')
 }

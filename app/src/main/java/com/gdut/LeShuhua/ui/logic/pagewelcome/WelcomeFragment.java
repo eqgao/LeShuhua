@@ -1,10 +1,13 @@
 package com.gdut.LeShuhua.ui.logic.pagewelcome;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import com.gdut.LeShuhua.mvpframe.BaseModel;
-import com.gdut.LeShuhua.mvpframe.BasePresenter;
-import com.gdut.LeShuhua.mvpframe.base.BaseFrameFragment;
+import com.gdut.LeShuhua.R;
+import com.gdut.LeShuhua.common.BaseFragment;
 
 
 /**
@@ -13,21 +16,18 @@ import com.gdut.LeShuhua.mvpframe.base.BaseFrameFragment;
  * 描述：
  */
 
-public class WelcomeFragment extends BaseFrameFragment<BasePresenter, BaseModel> {
+public class WelcomeFragment extends BaseFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.content_recycle);
     }
 
+    @Nullable
     @Override
-    public void onRequestStart() {
-
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    @Override
-    public void onRequestEnd() {
-
-    }
 }
