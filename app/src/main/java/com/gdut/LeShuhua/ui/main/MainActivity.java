@@ -17,9 +17,11 @@ import android.widget.TextView;
 
 import com.gdut.LeShuhua.R;
 import com.gdut.LeShuhua.common.BaseActivity;
+import com.gdut.LeShuhua.common.FragmentAdapter;
 import com.gdut.LeShuhua.entity.DrawerMenuEntity;
 import com.gdut.LeShuhua.ui.adapter.DrawerMenuAdapter;
 import com.gdut.LeShuhua.ui.custom.MySimpleDraweeView;
+import com.gdut.LeShuhua.ui.logic.pagewelcome.WelcomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,11 +50,14 @@ public class MainActivity extends BaseActivity {
     private DrawerMenuAdapter mMenuAdapter;
     private TabLayout mTabLayout;
 
+    private WelcomeFragment welcomeFragment1;
+    private WelcomeFragment welcomeFragment2;
+    private WelcomeFragment welcomeFragment3;
+    private WelcomeFragment welcomeFragment4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();
     }
 
     private void initToolbar() {
@@ -105,12 +110,38 @@ public class MainActivity extends BaseActivity {
 
     public void initView() {
         findView();
-
+        initToolbar();
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         mDrawerMenuRc.setLayoutManager(layoutManager);
         mDrawerMenuRc.setAdapter(mMenuAdapter);
+        setupViewPager();
 
+    }
+
+    private void setupViewPager() {
+        List<String> titles = new ArrayList<>();
+        titles.add("推荐");
+        titles.add("艺术品");
+        titles.add("艺术家");
+        titles.add("商品");
+
+        welcomeFragment1 = new WelcomeFragment();
+        welcomeFragment2 = new WelcomeFragment();
+        welcomeFragment3 = new WelcomeFragment();
+        welcomeFragment4 = new WelcomeFragment();
+
+        FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
+        fragmentAdapter.addFragment(welcomeFragment1, titles.get(0));
+        fragmentAdapter.addFragment(welcomeFragment2, titles.get(1));
+        fragmentAdapter.addFragment(welcomeFragment3, titles.get(2));
+        fragmentAdapter.addFragment(welcomeFragment4, titles.get(3));
+
+        mContainer.setAdapter(fragmentAdapter);
+        mContainer.setOffscreenPageLimit(4);
+
+        mTabLayout.setupWithViewPager(mContainer);
+        mTabLayout.setTabsFromPagerAdapter(fragmentAdapter);
     }
 
 }
